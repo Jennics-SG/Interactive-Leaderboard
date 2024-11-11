@@ -1,0 +1,17 @@
+{
+  "name": "interactive-leaderboard",
+  "version": "0.0.1",
+  "description": "Interactive leaderboard built with pixijs",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "npx nodemon"
+  },
+  "author": "Jimy Houlbrook",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "nodemon": "^3.1.7",
+    "pixi.js": "^8.5.2"
+  }
+}
