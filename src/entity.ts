@@ -22,6 +22,10 @@ export class Entity extends Container {
         this.speedMultiplier = Math.random() * 2;
     }
 
+    regenSpeed(){
+        this.speedMultiplier = Math.random() * 2;
+    }
+
     moveTo(x: number, y: number){
         this.position.set(x, y);
     }

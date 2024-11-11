@@ -24,7 +24,7 @@ export class Parallax extends Container{
         this._appH = h;
 
         // Create 20 entities
-        for(let i = 0; i <= 100; i++){
+        for(let i = 0; i <= 200; i++){
             this.createEntity();
         }
     }
@@ -38,8 +38,8 @@ export class Parallax extends Container{
         return {
             x: this.generateNumInRange(minX, maxX),
             y: this.generateNumInRange(minY, maxY),
-            w: this.generateNumInRange(25, 75),
-            h: this.generateNumInRange(25, 75)
+            w: this.generateNumInRange(5, 15),
+            h: this.generateNumInRange(5, 15)
         }
     }
 
@@ -62,6 +62,7 @@ export class Parallax extends Container{
             if(entity.position.y + entity.height / 2 <= 0){
                 const {x, y} = this.generateEntityDims();
                 entity.moveTo(x, y);
+                entity.regenSpeed();
             }
         }
     }
