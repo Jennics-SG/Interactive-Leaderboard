@@ -23,12 +23,13 @@ export class Parallax extends Container{
         this._appW = w;
         this._appH = h;
 
-        // Create 20 entities
+        // Create 200 entities
         for(let i = 0; i <= 200; i++){
             this.createEntity();
         }
     }
 
+    // Generate Entity Dimensions given min/max x/y values
     generateEntityDims(): {x: number, y: number, w: number, h: number}{
         const minY = this._appH;
         const maxY = minY + (this._appH / 10);
@@ -43,11 +44,13 @@ export class Parallax extends Container{
         }
     }
 
+    // Generate random number in range
     generateNumInRange(min: number, max: number): number{
         const num = Math.random();
         return max + (min - max) * num;
     }
 
+    // Create an entity and add to parallax
     createEntity(){
         const {x, y, w, h} = this.generateEntityDims();
         const entity = new Entity(0-w/2, 0-h/2, w, h);
@@ -55,6 +58,7 @@ export class Parallax extends Container{
         this._entities.push(entity);
     }
 
+    // Update loop, runs every frame
     public update(){
         for(const entity of this._entities){
             entity.position.y -= 2.5 * entity.speedMultiplier;

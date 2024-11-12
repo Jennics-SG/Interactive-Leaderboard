@@ -7,12 +7,24 @@
 import { Application } from 'pixi.js';
 
 import { Parallax } from './parallax';
+import { Leaderboard } from './leaderboard';
 
 class AppContainer{
+
     private app: Application;
+
+    private names: Array<string>
+
     constructor(){
         this.app = new Application;
         this.init();
+
+        this.names = [
+            'test',
+            'Ronnie Radke',
+            'Tim Shaw',
+            'Harriet Jones'
+        ]
     }
 
     async init(){
@@ -31,6 +43,10 @@ class AppContainer{
         const parallax = new Parallax(this.app.canvas.width, this.app.canvas.height);
         this.app.stage.addChild(parallax);
         this.app.ticker.add(parallax.update.bind(parallax));
+
+        // Create leaderboard Entry for each name
+        const leaderboard = new Leaderboard(this.names, this.app.canvas.width, this.app.canvas.height);
+        this.app.stage.addChild(leaderboard);
     }
 }
 
