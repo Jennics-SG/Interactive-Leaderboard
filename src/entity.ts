@@ -12,6 +12,13 @@ export class Entity extends Container {
 
     public speedMultiplier: number;
 
+    /** Create an entity of w/h at x/y
+     * 
+     * @param x     {number}    X Position
+     * @param y     {number}    Y Position
+     * @param w     {number}    Width
+     * @param h     {number}    Height
+     */
     constructor(x: number, y: number, w: number, h: number){
         super();
 

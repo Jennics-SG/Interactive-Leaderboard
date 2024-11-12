@@ -9,24 +9,30 @@ import { Application } from 'pixi.js';
 import { Parallax } from './parallax';
 import { Leaderboard } from './leaderboard';
 
+// Container to hold Application
 class AppContainer{
 
+    // PIXI Application
     private app: Application;
 
+    // Array of names in leaderBoard
     private names: Array<string>
 
+    // Initialse static properties
     constructor(){
         this.app = new Application;
-        this.init();
-
+        
         this.names = [
-            'test',
-            'Ronnie Radke',
-            'Tim Shaw',
-            'Harriet Jones'
+            "test",
+            "test",
+            "test",
+            "test",
         ]
+        
+        this.init();
     }
 
+    // Initialise application
     async init(){
         // Load PIXI Application
         await this.app.init({
@@ -36,7 +42,6 @@ class AppContainer{
             background: "0x000000",
             antialias: true,
             resizeTo: window,
-            hello: true,
         });
 
         // Create Parallax Backround
@@ -44,7 +49,7 @@ class AppContainer{
         this.app.stage.addChild(parallax);
         this.app.ticker.add(parallax.update.bind(parallax));
 
-        // Create leaderboard Entry for each name
+        // Create Leaderboard
         const leaderboard = new Leaderboard(this.names, this.app.canvas.width, this.app.canvas.height);
         this.app.stage.addChild(leaderboard);
     }

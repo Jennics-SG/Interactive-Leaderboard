@@ -17,6 +17,11 @@ export class Parallax extends Container{
     private _appW: number;
     private _appH: number;
 
+    /** Create a parallax background effect
+     * 
+     * @param w     Width
+     * @param h     Height
+     */
     constructor(w: number, h: number){
         super();
         this._entities = [];
@@ -29,7 +34,10 @@ export class Parallax extends Container{
         }
     }
 
-    // Generate Entity Dimensions given min/max x/y values
+    /** Generate Entity dimensions within given range
+     * 
+     * @returns {{} x: number, y: number, w: number, h: number }
+     */
     generateEntityDims(): {x: number, y: number, w: number, h: number}{
         const minY = this._appH;
         const maxY = minY + (this._appH / 10);
@@ -44,7 +52,12 @@ export class Parallax extends Container{
         }
     }
 
-    // Generate random number in range
+    /** Generate Random number in Range
+     * 
+     * @param min   Minimum number can be
+     * @param max   Maximum number can be
+     * @returns     number
+     */
     generateNumInRange(min: number, max: number): number{
         const num = Math.random();
         return max + (min - max) * num;
